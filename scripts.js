@@ -15,7 +15,9 @@ const Modal = {
 
 const Storage = {
     get() {
-        return JSON.parse(localStorage.getItem("dev.finance:transactions")) || []
+        let items = localStorage.getItem('dev.finances:transactions') ? JSON.parse(localStorage.getItem('dev.finances:transactions')) : []
+
+        return items
     },
     set(transactions) {
        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
@@ -109,9 +111,8 @@ const DOM = {
 
 const Utils = {
     formatAmount(value) {
-        value = Number(value) * 100
-        console.log(value)
-        return value
+        value = value * 100
+        return Math.round(value)
        
     },
      
@@ -200,9 +201,7 @@ const Form = {
 const App = {
     init() {
      
-        Transaction.all.forEach((transaction, index) => {
-            DOM.addTransaction(transaction, index)
-        })
+        Transaction.all.forEach(DOM.addTransaction)
         
         DOM.updateBalance()
 
