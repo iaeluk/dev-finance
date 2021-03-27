@@ -106,7 +106,8 @@ header {
 
 header h1 {
     color: #FFF;
-    font-weight: 250;
+    font-size: 100%;
+    font-weight: 500;
 }
 
 /* Balance =============================*/
@@ -295,6 +296,12 @@ footer {
          display: grid;
          grid-template-columns: repeat(3, 1fr);
          gap: 1.5rem;
+     }
+
+     header h1 {
+        color: #FFF;
+        font-size: 100%;
+       font-weight: 500;
      }
 }
 
